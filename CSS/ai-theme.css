@@ -1,0 +1,606 @@
+/* ============================================
+   PROFESSIONAL AI/ML THEME ENHANCEMENTS
+   ============================================ */
+
+/* Enhanced AI Color Scheme */
+:root {
+    /* Primary AI Colors */
+    --ai-primary: #00d4ff;
+    --ai-secondary: #7c3aed;
+    --ai-accent: #ff006e;
+    --ai-glow: #00ffff;
+
+    /* Neural Network Colors */
+    --neural-blue: rgba(0, 212, 255, 0.6);
+    --neural-purple: rgba(124, 58, 237, 0.6);
+    --neural-pink: rgba(255, 0, 110, 0.6);
+
+    /* Holographic Effects */
+    --holo-1: rgba(0, 212, 255, 0.1);
+    --holo-2: rgba(124, 58, 237, 0.1);
+    --holo-3: rgba(255, 0, 110, 0.1);
+}
+
+/* ============================================
+   ADVANCED NEURAL NETWORK BACKGROUND
+   ============================================ */
+
+/* Animated Grid Background */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Enhanced Neural Nodes */
+.neural-node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, var(--ai-primary), transparent);
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px var(--ai-primary),
+        0 0 20px var(--ai-primary),
+        0 0 30px rgba(0, 212, 255, 0.3);
+    animation: neuralPulse 3s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   HOLOGRAPHIC CARD EFFECTS
+   ============================================ */
+
+.project-card,
+.practice-item,
+.about-info,
+.info-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Holographic Shine Effect */
+.project-card::before,
+.practice-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(0, 212, 255, 0.1) 50%,
+            transparent 70%);
+    transform: rotate(45deg);
+    animation: holoShine 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes holoShine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Enhanced Card Glow on Hover */
+.project-card:hover,
+.practice-item:hover {
+    box-shadow:
+        0 0 30px rgba(0, 212, 255, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 20px 60px rgba(0, 0, 0, 0.3);
+    border-color: var(--ai-primary);
+}
+
+/* ============================================
+   AI DATA STREAM EFFECTS
+   ============================================ */
+
+/* Animated Border for Sections */
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--ai-primary),
+            var(--ai-secondary),
+            var(--ai-accent),
+            transparent);
+    animation: dataStream 3s linear infinite;
+}
+
+@keyframes dataStream {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ============================================
+   GLOWING TEXT EFFECTS
+   ============================================ */
+
+.section-title {
+    text-shadow:
+        0 0 10px rgba(0, 212, 255, 0.5),
+        0 0 20px rgba(0, 212, 255, 0.3),
+        0 0 30px rgba(0, 212, 255, 0.1);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(0, 212, 255, 0.5),
+            0 0 20px rgba(0, 212, 255, 0.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px rgba(0, 212, 255, 0.8),
+            0 0 40px rgba(0, 212, 255, 0.5),
+            0 0 60px rgba(0, 212, 255, 0.3);
+    }
+}
+
+/* ============================================
+   TECH BADGES WITH AI GLOW
+   ============================================ */
+
+.tech-badge {
+    position: relative;
+    background: linear-gradient(135deg,
+            rgba(0, 212, 255, 0.1),
+            rgba(124, 58, 237, 0.1));
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow:
+        0 0 10px rgba(0, 212, 255, 0.2),
+        inset 0 0 10px rgba(0, 212, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background: linear-gradient(135deg,
+            rgba(0, 212, 255, 0.3),
+            rgba(124, 58, 237, 0.3));
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.5),
+        0 0 40px rgba(124, 58, 237, 0.3),
+        inset 0 0 20px rgba(0, 212, 255, 0.2);
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* ============================================
+   NEURAL CONNECTION LINES
+   ============================================ */
+
+.neural-bg svg line {
+    stroke: url(#neuralGradient);
+    stroke-width: 1.5;
+    opacity: 0.4;
+    animation: connectionPulse 2s ease-in-out infinite;
+}
+
+@keyframes connectionPulse {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ============================================
+   BUTTON ENHANCEMENTS
+   ============================================ */
+
+.btn-primary {
+    background: linear-gradient(135deg,
+            var(--ai-primary),
+            var(--ai-secondary));
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.4),
+        0 0 40px rgba(124, 58, 237, 0.2),
+        0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    animation: buttonShine 3s linear infinite;
+}
+
+@keyframes buttonShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.btn-primary:hover {
+    box-shadow:
+        0 0 30px rgba(0, 212, 255, 0.6),
+        0 0 60px rgba(124, 58, 237, 0.4),
+        0 8px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* ============================================
+   PROJECT IMAGE ENHANCEMENTS
+   ============================================ */
+
+.project-image {
+    position: relative;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 212, 255, 0.1),
+            rgba(124, 58, 237, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-card:hover .project-image::before {
+    opacity: 1;
+}
+
+.project-image img,
+.project-image video {
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.1),
+        0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover .project-image img,
+.project-card:hover .project-image video {
+    border-color: var(--ai-primary);
+    box-shadow:
+        0 0 30px rgba(0, 212, 255, 0.4),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================
+   NAVIGATION ENHANCEMENTS
+   ============================================ */
+
+nav {
+    backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(15, 15, 30, 0.85);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    box-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.nav-links a::after {
+    background: linear-gradient(90deg,
+            var(--ai-primary),
+            var(--ai-secondary));
+    box-shadow: 0 0 10px var(--ai-primary);
+}
+
+/* ============================================
+   HERO SECTION ENHANCEMENTS
+   ============================================ */
+
+.hero {
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: radial-gradient(ellipse at top,
+            rgba(0, 212, 255, 0.1),
+            transparent 70%);
+    pointer-events: none;
+}
+
+.hero h1 {
+    background: linear-gradient(135deg,
+            #ffffff,
+            var(--ai-primary),
+            var(--ai-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ============================================
+   PORTRAIT ENHANCEMENTS
+   ============================================ */
+
+.portrait-img {
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    box-shadow:
+        0 0 30px rgba(0, 212, 255, 0.3),
+        0 0 60px rgba(124, 58, 237, 0.2),
+        0 18px 50px rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+.portrait-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg,
+            var(--ai-primary),
+            var(--ai-secondary),
+            var(--ai-accent),
+            var(--ai-primary));
+    background-size: 300% 300%;
+    border-radius: 12px;
+    z-index: 0;
+    opacity: 0.3;
+    animation: borderGlow 4s ease infinite;
+    filter: blur(10px);
+}
+
+@keyframes borderGlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ============================================
+   PARTICLE EFFECTS
+   ============================================ */
+
+.ai-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--ai-primary);
+    border-radius: 50%;
+    box-shadow:
+        0 0 4px var(--ai-primary),
+        0 0 8px var(--ai-primary);
+    animation: particleFloat 10s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   CONTACT FORM ENHANCEMENTS
+   ============================================ */
+
+.form-group input,
+.form-group textarea {
+    background: rgba(0, 212, 255, 0.03);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    background: rgba(0, 212, 255, 0.05);
+    border-color: var(--ai-primary);
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.2),
+        inset 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* ============================================
+   FOOTER ENHANCEMENTS
+   ============================================ */
+
+footer {
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    background: linear-gradient(180deg,
+            rgba(15, 15, 30, 0.95),
+            rgba(0, 0, 0, 0.98));
+    box-shadow:
+        0 -4px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.social-link {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--ai-primary);
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.3),
+        0 0 40px rgba(0, 212, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 15, 30, 0.95);
+    border-left: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            var(--ai-primary),
+            var(--ai-secondary));
+    border-radius: 6px;
+    box-shadow:
+        0 0 10px rgba(0, 212, 255, 0.5),
+        inset 0 0 6px rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            var(--ai-secondary),
+            var(--ai-accent));
+    box-shadow:
+        0 0 20px rgba(0, 212, 255, 0.8),
+        inset 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   LOADING ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply to sections */
+section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .tech-badge:hover {
+        transform: translateY(-2px) scale(1.02);
+    }
+
+    .project-card:hover,
+    .practice-item:hover {
+        box-shadow:
+            0 0 20px rgba(0, 212, 255, 0.2),
+            0 0 40px rgba(124, 58, 237, 0.1);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

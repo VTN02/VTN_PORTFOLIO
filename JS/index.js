@@ -177,7 +177,7 @@ function startSlideshow() {
         if (!isPaused) {
             showNextSlide();
         }
-    }, 900);
+    }, 1000);
 }
 
 function showNextSlide() {
