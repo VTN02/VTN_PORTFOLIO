@@ -1,0 +1,5 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  <text x="400" y="300" font-family="Arial" font-size="24" fill="#6366f1" text-anchor="middle">Campus Bike Rental System</text>
+  <text x="400" y="340" font-family="Arial" font-size="16" fill="#94a3b8" text-anchor="middle">Replace this placeholder with your project screenshot</text>
+</svg>
