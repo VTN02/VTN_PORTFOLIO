@@ -60,9 +60,12 @@ function enhanceTechBadges() {
     return;
 }
 
-// Initialize only lightweight effects
+// Initialize only lightweight effects (disabled on mobile)
 window.addEventListener('load', () => {
-    initScrollReveal();
+    // Only enable scroll reveal on desktop
+    if (window.innerWidth > 768) {
+        initScrollReveal();
+    }
 });
 
 // Clean up - no animations to pause

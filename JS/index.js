@@ -28,28 +28,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// Add scroll animations (Desktop only for performance)
+if (window.innerWidth > 768) {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(section);
     });
-}, observerOptions);
-
-// Observe all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(section);
-});
+}
 
 // Navbar background on scroll
 window.addEventListener('scroll', () => {
@@ -61,9 +63,14 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Neural Network Background Animation
+// Neural Network Background Animation (Desktop only)
 function createNeuralNetwork() {
+    // Skip on mobile for performance
+    if (window.innerWidth <= 768) return;
+
     const container = document.getElementById('neuralBg');
+    if (!container) return;
+
     const nodeCount = 30;
     const nodes = [];
 
@@ -114,12 +121,17 @@ function createNeuralNetwork() {
     }
 }
 
-// Initialize neural network on load
+// Initialize neural network on load (desktop only)
 window.addEventListener('load', createNeuralNetwork);
 
-// AI Code Rain Animation
+// AI Code Rain Animation (Desktop only)
 function createCodeRain() {
+    // Skip on mobile for performance
+    if (window.innerWidth <= 768) return;
+
     const container = document.getElementById('codeRain');
+    if (!container) return;
+
     const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const columns = Math.floor(window.innerWidth / 20);
 
@@ -157,21 +169,21 @@ function initSlideshow() {
 function startSlideshow() {
     const items = document.querySelectorAll('.practice-item');
     if (items.length === 0) return;
-    
+
     currentSlide = 0;
     isPaused = false;
-    
+
     // Hide all items and remove animation classes
     items.forEach(item => {
         item.classList.remove('slide-in', 'slide-out');
         item.style.display = 'none';
     });
-    
+
     // Show first item with animation
     items[0].style.display = 'flex';
     items[0].classList.add('slide-in');
     updateDots();
-    
+
     // Start auto-rotation
     slideshowInterval = setInterval(() => {
         if (!isPaused) {
@@ -183,14 +195,14 @@ function startSlideshow() {
 function showNextSlide() {
     const items = document.querySelectorAll('.practice-item');
     if (items.length === 0) return;
-    
+
     // Scroll out current slide
     items[currentSlide].classList.remove('slide-in');
     items[currentSlide].classList.add('slide-out');
-    
+
     // Move to next slide
     currentSlide = (currentSlide + 1) % items.length;
-    
+
     // Scroll in next slide after transition completes
     setTimeout(() => {
         items.forEach(item => item.style.display = 'none');
@@ -205,7 +217,7 @@ function toggleSlideshow() {
     isPaused = !isPaused;
     const pauseIcon = document.getElementById('pauseIcon');
     const playIcon = document.getElementById('playIcon');
-    
+
     if (isPaused) {
         pauseIcon.style.display = 'none';
         playIcon.style.display = 'inline';
@@ -263,13 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project-video').forEach(video => {
         videoObserver.observe(video);
     });
-    
+
     // Typing effect for name
     const typingElement = document.getElementById('typingName');
     if (typingElement) {
         const fullText = 'Vithusan Vijayakumar';
         let charIndex = 0;
-        
+
         function typeNextChar() {
             if (charIndex < fullText.length) {
                 typingElement.textContent += fullText.charAt(charIndex);
@@ -282,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 500);
             }
         }
-        
+
         setTimeout(typeNextChar, 500);
     }
 });

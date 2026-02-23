@@ -40,134 +40,36 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Enhanced AI Background Effects */
+/* Simplified Background - Mobile Optimized */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 60% 20%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
     z-index: -3;
-    animation: aiBackgroundPulse 20s ease-in-out infinite;
+    pointer-events: none;
 }
 
-@keyframes aiBackgroundPulse {
-
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    25% {
-        opacity: 0.8;
-        transform: scale(1.05) translateX(2%);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: scale(1) translateY(2%);
-    }
-
-    75% {
-        opacity: 0.85;
-        transform: scale(1.05) translateX(-2%);
-    }
-}
-
+/* Simplified grid - no animation */
 .bg-grid {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+        linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%);
     z-index: -2;
-    animation: gridFlow 30s linear infinite;
-}
-
-@keyframes gridFlow {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 60px 60px;
-    }
-}
-
-.neural-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    overflow: hidden;
-    opacity: 0.7;
-    filter: blur(0.5px);
-}
-
-.neural-node {
-    animation: neuralPulse 4s ease-in-out infinite;
-}
-
-@keyframes neuralPulse {
-
-    0%,
-    100% {
-        opacity: 0.6;
-        transform: scale(1);
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-        box-shadow: 0 0 30px rgba(99, 102, 241, 0.9);
-    }
-}
-
-/* AI Data Stream Effect */
-.code-rain {
-    position: fixed;
-    inset: 0;
     pointer-events: none;
-    z-index: 1;
-    opacity: 0.08;
 }
 
-.code-char {
-    position: absolute;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    color: var(--accent);
-    animation: aiDataStream 10s linear infinite;
-    text-shadow: 0 0 12px var(--accent-glow), 0 0 24px rgba(99, 102, 241, 0.4);
-    font-weight: 600;
-}
-
-@keyframes aiDataStream {
-    0% {
-        top: -20px;
-        opacity: 0;
-        filter: blur(2px);
-    }
-
-    10% {
-        opacity: 1;
-        filter: blur(0);
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        top: 100vh;
-        opacity: 0;
-    }
+/* Hide heavy effects on mobile */
+.neural-bg,
+.code-rain,
+.ai-particles {
+    display: none;
 }
 
 /* Improved Navigation */
@@ -339,20 +241,6 @@ nav>div {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
-    animation: gradientShift 8s ease-in-out infinite;
-    background-size: 200% 200%;
-}
-
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
 }
 
 .hero-text p {
@@ -540,22 +428,7 @@ nav>div {
     }
 }
 
-/* Subtle floating on the portrait to add life (reduced motion respected) */
-@media (prefers-reduced-motion: no-preference) {
-    .portrait-img {
-        animation: floatSlow 6s ease-in-out infinite alternate 0.6s;
-    }
-
-    @keyframes floatSlow {
-        from {
-            transform: translateY(-6px) translateZ(0);
-        }
-
-        to {
-            transform: translateY(-12px) translateZ(0);
-        }
-    }
-}
+/* Removed floating animation for better mobile performance */
 
 @media (max-width: 980px) {
     .hero-content {
@@ -605,32 +478,14 @@ nav>div {
 .btn-primary {
     background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
     color: #ffffff;
-    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
     position: relative;
     overflow: hidden;
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-primary:hover::before {
-    left: 100%;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 40px rgba(99, 102, 241, 0.5),
-        0 0 20px rgba(99, 102, 241, 0.3);
-    animation: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(99, 102, 241, 0.35);
 }
 
 .btn-secondary {
