@@ -67,6 +67,9 @@ section,
     nav>div {
         padding: 1rem !important;
         width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
     }
 
     .logo {
@@ -78,6 +81,32 @@ section,
         max-width: 300px !important;
     }
 
+    /* Hamburger / Mobile Toggle Icon Fix */
+    .mobile-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 5px !important;
+        width: 40px !important;
+        height: 40px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+        padding: 6px !important;
+        z-index: 1100 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .mobile-toggle span {
+        display: block !important;
+        width: 24px !important;
+        height: 2px !important;
+        background: var(--text-primary, #fff) !important;
+        border-radius: 2px !important;
+        transition: all 0.3s ease !important;
+    }
+
     /* Hero Section */
     .hero {
         padding: 6rem 1rem 3rem !important;
@@ -85,7 +114,8 @@ section,
     }
 
     .hero-content {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 2rem !important;
         padding: 0 !important;
     }
@@ -126,10 +156,14 @@ section,
         text-align: center !important;
     }
 
-    /* Portrait */
+    /* Portrait - show AFTER hero text on mobile */
     .hero-visual {
-        order: -1 !important;
+        order: 2 !important;
         padding: 0 !important;
+    }
+
+    .hero-text {
+        order: 1 !important;
     }
 
     .portrait-wrap {
@@ -141,6 +175,7 @@ section,
     .portrait-img {
         width: 100% !important;
         height: 100% !important;
+        object-fit: cover !important;
     }
 
     /* Social Icons */
@@ -223,17 +258,30 @@ section,
     }
 
     .project-image {
-        min-height: 250px !important;
-        max-height: 300px !important;
+        min-height: 220px !important;
+        max-height: 280px !important;
         margin: 1rem !important;
         width: calc(100% - 2rem) !important;
+        overflow: hidden !important;
+        border-radius: 8px !important;
     }
 
     .project-image img,
     .project-image video {
         width: 100% !important;
         height: 100% !important;
+        max-height: 280px !important;
         object-fit: cover !important;
+        display: block !important;
+    }
+
+    /* Video specific fix */
+    .project-video {
+        width: 100% !important;
+        height: 220px !important;
+        max-height: 280px !important;
+        object-fit: cover !important;
+        border-radius: 8px !important;
     }
 
     .project-content {
@@ -608,6 +656,34 @@ section,
 
     .nav-links.active {
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Ensure hamburger is always visible */
+    .mobile-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Video responsive fix for tablet range */
+    .project-video {
+        width: 100% !important;
+        height: 260px !important;
+        object-fit: cover !important;
+    }
+
+    /* Hero order fix for tablet range */
+    .hero-content {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .hero-text {
+        order: 1 !important;
+    }
+
+    .hero-visual {
+        order: 2 !important;
     }
 }
 
