@@ -29,15 +29,19 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Fix all containers */
+/* Fix overflow only — do NOT override max-width or centering */
 .container,
 section,
 .hero,
 .projects,
 .about,
 .contact {
-    max-width: 100vw !important;
     overflow-x: hidden !important;
+}
+
+/* Sections keep their centered max-width from index.css */
+section {
+    box-sizing: border-box !important;
 }
 
 /* ============================================
@@ -88,23 +92,28 @@ section,
         justify-content: center !important;
         align-items: center !important;
         gap: 5px !important;
-        width: 40px !important;
-        height: 40px !important;
+        width: 44px !important;
+        height: 44px !important;
         background: transparent !important;
+        background-color: transparent !important;
         border: none !important;
+        outline: none !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
         cursor: pointer !important;
-        padding: 6px !important;
+        padding: 8px !important;
         z-index: 1100 !important;
         flex-shrink: 0 !important;
     }
 
     .mobile-toggle span {
         display: block !important;
-        width: 24px !important;
+        width: 22px !important;
         height: 2px !important;
-        background: var(--text-primary, #fff) !important;
+        background: var(--text-primary, #ffffff) !important;
         border-radius: 2px !important;
         transition: all 0.3s ease !important;
+        pointer-events: none !important;
     }
 
     /* Hero Section */
@@ -118,6 +127,8 @@ section,
         flex-direction: column !important;
         gap: 2rem !important;
         padding: 0 !important;
+        /* Force text first, image second on mobile */
+        grid-template-columns: unset !important;
     }
 
     .hero-text {
@@ -167,15 +178,17 @@ section,
     }
 
     .portrait-wrap {
-        width: 200px !important;
-        height: 200px !important;
+        width: 180px !important;
+        height: 240px !important;
         margin: 0 auto !important;
     }
 
     .portrait-img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important;
+        width: auto !important;
+        max-width: 180px !important;
+        height: auto !important;
+        max-height: 240px !important;
+        object-fit: contain !important;
     }
 
     /* Social Icons */
@@ -258,10 +271,11 @@ section,
     }
 
     .project-image {
-        min-height: 220px !important;
-        max-height: 280px !important;
-        margin: 1rem !important;
-        width: calc(100% - 2rem) !important;
+        min-height: 180px !important;
+        max-height: 240px !important;
+        height: 200px !important;
+        margin: 0.75rem !important;
+        width: calc(100% - 1.5rem) !important;
         overflow: hidden !important;
         border-radius: 8px !important;
     }
@@ -270,7 +284,7 @@ section,
     .project-image video {
         width: 100% !important;
         height: 100% !important;
-        max-height: 280px !important;
+        max-height: 240px !important;
         object-fit: cover !important;
         display: block !important;
     }
@@ -278,10 +292,11 @@ section,
     /* Video specific fix */
     .project-video {
         width: 100% !important;
-        height: 220px !important;
-        max-height: 280px !important;
+        height: 200px !important;
+        max-height: 240px !important;
         object-fit: cover !important;
         border-radius: 8px !important;
+        display: block !important;
     }
 
     .project-content {
@@ -345,11 +360,27 @@ section,
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
         padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .contact-info {
+        gap: 1.25rem !important;
+        padding: 0 !important;
+        width: 100% !important;
     }
 
     .contact-form {
         padding: 1.5rem !important;
         margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-method {
+        padding: 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .form-group {
@@ -371,16 +402,6 @@ section,
 
     .form-group textarea {
         min-height: 120px !important;
-    }
-
-    /* Contact Info */
-    .contact-info {
-        gap: 1.25rem !important;
-        padding: 0 !important;
-    }
-
-    .contact-method {
-        padding: 1.25rem !important;
     }
 
     .contact-method h3 {
@@ -501,16 +522,25 @@ section,
     }
 
     .hero-content {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: unset !important;
         text-align: center !important;
     }
 
+    /* Text first, image second on tablet */
+    .hero-text {
+        order: 1 !important;
+    }
+
     .hero-visual {
-        order: -1 !important;
+        order: 2 !important;
     }
 
     .portrait-wrap {
         margin: 0 auto !important;
+        width: 220px !important;
+        height: 290px !important;
     }
 
     .social-row {
@@ -523,7 +553,17 @@ section,
     }
 
     .project-image {
-        min-height: 350px !important;
+        min-height: 260px !important;
+        max-height: 320px !important;
+        height: 280px !important;
+    }
+
+    /* Video fix for tablet */
+    .project-video {
+        width: 100% !important;
+        height: 280px !important;
+        max-height: 320px !important;
+        object-fit: cover !important;
     }
 
     .practice-item {
@@ -634,17 +674,21 @@ section,
     }
 }
 
-/* Ensure buttons are touch-friendly */
+/* Ensure buttons are touch-friendly - ONLY target buttons and nav links, NOT contact/social links */
 @media (max-width: 768px) {
 
     .btn,
-    .social-link,
-    .tech-badge,
+    .mobile-toggle,
     .whatsapp-float,
-    button,
-    a {
+    button {
         min-height: 44px !important;
-        min-width: 44px !important;
+    }
+
+    /* Nav links touch target */
+    .nav-links a {
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
     }
 }
 
@@ -665,17 +709,20 @@ section,
         opacity: 1 !important;
     }
 
-    /* Video responsive fix for tablet range */
+    /* Video responsive fix for mobile/tablet range */
     .project-video {
         width: 100% !important;
-        height: 260px !important;
+        height: 220px !important;
+        max-height: 260px !important;
         object-fit: cover !important;
+        display: block !important;
     }
 
-    /* Hero order fix for tablet range */
+    /* Hero order fix for all small screens */
     .hero-content {
         display: flex !important;
         flex-direction: column !important;
+        grid-template-columns: unset !important;
     }
 
     .hero-text {
@@ -697,11 +744,9 @@ section,
         transition-duration: 0.2s !important;
     }
 
-    /* GPU acceleration for smooth scrolling */
-    body {
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-    }
+    /* NOTE: Do NOT add transform to body/html on mobile —
+       it breaks position:fixed (whatsapp button, nav, etc.)
+       Use will-change on specific elements instead. */
 }
 
 /* Fix grid layouts on mobile */
@@ -723,5 +768,41 @@ section,
     .tech-badge:hover {
         transform: none !important;
         box-shadow: none !important;
+    }
+}
+
+/* ============================================
+   WHATSAPP FLOAT - Always pinned bottom-right
+   ============================================ */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 16px !important;
+        right: 16px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .whatsapp-float svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 56px !important;
+        height: 56px !important;
     }
 }

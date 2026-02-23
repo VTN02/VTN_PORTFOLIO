@@ -189,7 +189,7 @@ function startSlideshow() {
         if (!isPaused) {
             showNextSlide();
         }
-    }, 1000);
+    }, 1500);
 }
 
 function showNextSlide() {
@@ -270,31 +270,9 @@ const videoObserver = new IntersectionObserver((entries) => {
     threshold: 0.5
 });
 
-// Observe all project videos
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.project-video').forEach(video => {
         videoObserver.observe(video);
     });
-
-    // Typing effect for name
-    const typingElement = document.getElementById('typingName');
-    if (typingElement) {
-        const fullText = 'Vithusan Vijayakumar';
-        let charIndex = 0;
-
-        function typeNextChar() {
-            if (charIndex < fullText.length) {
-                typingElement.textContent += fullText.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeNextChar, 100);
-            } else {
-                // Remove cursor after typing completes
-                setTimeout(() => {
-                    typingElement.classList.add('typing-complete');
-                }, 500);
-            }
-        }
-
-        setTimeout(typeNextChar, 500);
-    }
 });

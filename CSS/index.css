@@ -171,6 +171,11 @@ nav>div {
     gap: 5px;
     cursor: pointer;
     padding: 0.5rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .mobile-toggle span {
@@ -432,13 +437,33 @@ nav>div {
 
 @media (max-width: 980px) {
     .hero-content {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
     }
 
+    /* Text first, image second */
+    .hero-text {
+        order: 1;
+        text-align: center;
+    }
+
+    .hero-visual {
+        order: 2;
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .social-row {
+        justify-content: center;
+    }
+
     .portrait-wrap {
-        width: 260px;
-        height: 340px;
+        width: 240px;
+        height: 320px;
     }
 }
 
